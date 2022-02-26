@@ -4,10 +4,10 @@ import { auth, db } from "../firebase-config";
 
 function Home({ isAuth }) {
   const [postLists, setPostList] = useState([]);
-  const postsCollectionRef = collection(db, "posts");
+  const postsCollectionRef = collection(db, "post");
 
   const deletePost = async (id) => {
-    const postDoc = doc(db, "posts", id);
+    const postDoc = doc(db, "post", id);
     await deleteDoc(postDoc);
   };
   useEffect(() => {
@@ -32,7 +32,7 @@ function Home({ isAuth }) {
                 {isAuth && post.author.id === auth.currentUser.uid && (
                   <button
                     onClick={() => {
-                      deletePost(post.id);
+                      deletePost(post.author.id);
                     }}
                   >
                     {" "}
