@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
 import { auth, db } from "../firebase-config";
 
-function Home({ isAuth }) {
+function storyAdmin({ isAuth }) {
   const [postLists, setPostList] = useState([]);
   const postsCollectionRef = collection(db, "post");
 
@@ -50,4 +50,4 @@ function Home({ isAuth }) {
   );
 }
 
-export default Home;
+export default storyAdmin;
